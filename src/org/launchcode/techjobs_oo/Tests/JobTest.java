@@ -31,10 +31,15 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
         assertTrue(testJob3.getName() instanceof String);
+        assertEquals(testJob3.getName(),"Product tester");
         assertTrue(testJob3.getEmployer() instanceof Employer);
+        assertEquals(testJob3.getEmployer().getValue(),"ACME");
         assertTrue(testJob3.getLocation() instanceof Location);
+        assertEquals(testJob3.getLocation().getValue(),"Desert");
         assertTrue(testJob3.getPositionType() instanceof PositionType);
+        assertEquals(testJob3.getPositionType().getValue(),"Quality control");
         assertTrue(testJob3.getCoreCompetency() instanceof CoreCompetency);
+        assertEquals(testJob3.getCoreCompetency().getValue(),"Persistence");
     }
 
     @Test
@@ -47,6 +52,10 @@ public class JobTest {
     public void testJobToString(){
         assertTrue(testJob3.toString().contains("\n"));
         assertTrue(testJob3.toString().contains(testJob3.getName()));
+        assertTrue(testJob3.toString().contains(testJob3.getEmployer().getValue()));
+        assertTrue(testJob3.toString().contains(testJob3.getLocation().getValue()));
+        assertTrue(testJob3.toString().contains(testJob3.getPositionType().getValue()));
+        assertTrue(testJob3.toString().contains(testJob3.getCoreCompetency().getValue()));
     }
 
 
