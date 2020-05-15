@@ -13,13 +13,14 @@ public class JobTest {
     Job testJob2;
     Job testJob3;
     Job testJob4;
+    Job testJob5;
     @Before
     public void createJobObject() {
         testJob1 = new Job();
         testJob2 = new Job();
         testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         testJob4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        //System.out.println(testJob3.toString());
+        testJob5 = new Job("",new Employer(""),new Location(""),new PositionType(""),new CoreCompetency(""));
     }
 
     @Test
@@ -44,7 +45,7 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality() {
-        assertFalse(testJob3 == testJob4);
+        assertFalse(testJob3.equals(testJob4));
 
     }
 
@@ -56,6 +57,11 @@ public class JobTest {
         assertTrue(testJob3.toString().contains(testJob3.getLocation().getValue()));
         assertTrue(testJob3.toString().contains(testJob3.getPositionType().getValue()));
         assertTrue(testJob3.toString().contains(testJob3.getCoreCompetency().getValue()));
+    }
+
+    @Test
+    public void testDataNotAvailable(){
+        assertTrue(testJob5.toString().contains("Data not available"));
     }
 
 
